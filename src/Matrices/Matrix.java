@@ -8,7 +8,7 @@ public class Matrix {
     public Matrix(){
         this.matrix = Matrix.createMatrix();
     }
-
+/// barevvv
     public static double[][] createMatrix(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Input the number of elements of your vector");
@@ -68,5 +68,6 @@ public class Matrix {
 //        Matrix result = new Matrix(m1.matrix.length, m2.matrix[0].length);
 //
 //    }
+    
 
 }
