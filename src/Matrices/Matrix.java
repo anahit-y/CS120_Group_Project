@@ -8,7 +8,7 @@ public class Matrix {
     public Matrix(){
         this.matrix = Matrix.createMatrix();
     }
-// barev
+
     public static double[][] createMatrix(){
         Scanner sc = new Scanner(System.in);
         System.out.println("Input the number of elements of your vector");
