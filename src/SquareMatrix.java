@@ -1,36 +1,135 @@
 package matrices;
+import vectors.Vector;
 
-public class SquareMatrix extends GeneralMatrix{
+public class SquareMatrix extends AbstractSquareMatrix {
+    private double[][] matrix;
 
     // constructors
     public SquareMatrix(int size) {
-        super(size, size);
+        super(size);
+        this.matrix = new double[size][size];
     }
 
-    public SquareMatrix(double[][] squareMatrix){
-        super(squareMatrix);
+    public SquareMatrix(double[][] squareMatrix) {
+        super(squareMatrix.length);
+        if (squareMatrix.length != squareMatrix[0].length)
+            throw new IllegalArgumentException("Non square matrix");
+        this.matrix = squareMatrix;
     }
 
-    public SquareMatrix(SquareMatrix other){
-        super(other);
+    public SquareMatrix(SquareMatrix other) {
+        this(other.matrix);
+    }
+
+    public SquareMatrix(Matrix other){
+        super(other.getNumberOfRows());
+        if (other.getNumberOfRows() != other.getNumberOfColumns())
+            throw new IllegalArgumentException();
+        this.matrix = new double[other.getNumberOfRows()][other.getNumberOfColumns()];
+        for (int i = 0; i < other.getNumberOfRows(); i++){
+            for (int j = 0; j < other.getNumberOfRows(); j++){
+                this.matrix[i][j] = other.getElementAt(i, j);
+            }
+        }
+
+    }
+
+    public void setElement(int i, int j, double value){
+        this.matrix[i][j] = value;
+    }
+
+// methods inherited from Matrix interface
+
+    // operations for vectors
+    public Vector rowToVector(int rowNumber) {
+        return new Vector(this.matrix[rowNumber]);
+    }
+
+    public Vector columnToVector(int columnNumber) {
+        double[] v = new double[this.getSize()];
+        for (int i = 0; i < v.length; i++) {
+            v[i] = this.matrix[i][columnNumber];
+        }
+        return new Vector(v);
     }
 
     // accessors
-    public int getSize(){
-        return super.getNumberOfColumns();
+    public double getElementAt(int i, int j) {
+        return this.matrix[i][j];
     }
 
-    public double getTrace(){
-        double trace = 0;
-        for (int i = 0; i < this.getSize(); i++)
-            trace += getElementAt(i, i);
-        return trace;
+    // operations on matrices
+    public Matrix multiply(Matrix m) throws IllegalArgumentException{
+        if (this.getNumberOfColumns() != m.getNumberOfRows())
+            throw new IllegalArgumentException("Matrices can't be multiplied");
+        GeneralMatrix result = new GeneralMatrix(this.getNumberOfRows(), m.getNumberOfColumns());
+        for (int i = 0; i < this.getNumberOfRows(); i++) {
+            for (int j = 0; j < m.getNumberOfColumns(); j++) {
+                result.setElementAt(i, j, Vector.dotProduct(this.rowToVector(i), m.columnToVector(j)));
+            }
+        }
+        return result;
     }
 
-    // helper methods for getDeterminant
+    public SquareMatrix scalarMultiply(double c){
+        SquareMatrix result = new SquareMatrix(this.getSize());
+        for (int i = 0; i < getSize(); i++) {
+            for (int j = 0; j < getSize(); j++) {
+                result.matrix[i][j] = this.getElementAt(i, j) * c;
+            }
+        }
+        return result;
+    }
+
+    public SquareMatrix transpose(){
+        SquareMatrix result = new SquareMatrix(this.getSize());
+        for (int i = 0; i < getSize(); i++) {
+            for (int j = 0; j < getSize(); j++) {
+                result.matrix[i][j] = this.getElementAt(j, i);
+            }
+        }
+        return result;
+    }
+
+    // methods from AbstractSquareMatrix class
+    public double getDeterminant() {
+        int size = this.getSize();
+        // base cases
+        if (size == 1) {
+            return this.getElementAt(0, 0);
+        } else if (size == 2) {
+            return (this.getElementAt(0, 0) * this.getElementAt(1, 1) - this.getElementAt(0, 1) * this.getElementAt(1, 0));
+        }
+
+        double determinant = 0.0;
+        for (int j = 0; j < size; j++) {
+            determinant += this.getElementAt(0, j) * Math.pow(-1, j) * this.getMinorMatrix(0, j).getDeterminant();
+        }
+        return determinant;
+    }
+
+    public SquareMatrix inverse() {
+        if (!isInvertible())
+            throw new IllegalArgumentException("Matrix is not invertible.");
+
+        SquareMatrix mat = new SquareMatrix(getSize());
+        double determinant = getDeterminant();
+        for (int i = 0; i < getSize(); i++) {
+            for (int j = 0; j < getSize(); j++) {
+                double sign = ((i + j) % 2 == 0) ? 1 : -1; // Calculating sign based on row and column indices
+                double cofactorValue = sign * getMinorMatrix(i, j).getDeterminant();
+                mat.setElement(j, i, cofactorValue / determinant);
+            }
+        }
+        return mat;
+    }
+
+
+
+    // helper methods for getDeterminant and inverse
     private boolean hasRowOfZeros() {
         for (int i = 0; i < this.getSize(); i++) {
-            if (this.rowToVector(i).isZeroVector()){
+            if (this.rowToVector(i).isZeroVector()) {
                 return true;
             }
         }
@@ -46,29 +145,8 @@ public class SquareMatrix extends GeneralMatrix{
         }
         return false;
     }
-    public double getDeterminant() {
-        // base cases
-        if (this.getSize() == 1) {
-            return this.getElementAt(0, 0);
-        }
-        else if (this.getSize() == 2) {
-            return (this.getElementAt(0, 0) * this.getElementAt(1, 1) - this.getElementAt(0, 1) * this.getElementAt(1, 0));
-        }
-        // optimization means
-        else if (this.hasRowOfZeros() || this.hasIdenticalRows())
-            return 0;
-        else {
-            double determinant = 0;
-            for (int i = 0; i < this.getSize(); i++) {
-                double[][] minorMatrix = getMinorMatrix(0, i);
-                double minorDeterminant = new SquareMatrix(minorMatrix).getDeterminant();
-                determinant += this.getElementAt(0, i) * Math.pow(-1, i) * minorDeterminant;
-            }
-            return determinant;
-        }
-    }
 
-    private double[][] getMinorMatrix(int rowToRemove, int colToRemove) {
+    private SquareMatrix getMinorMatrix(int rowToRemove, int colToRemove) {
         int size = this.getSize();
         double[][] minorMatrix = new double[size - 1][size - 1];
         int newRow = 0;
@@ -86,9 +164,6 @@ public class SquareMatrix extends GeneralMatrix{
             }
             newRow++;
         }
-        return minorMatrix;
+        return new SquareMatrix(minorMatrix);
     }
-
-
-
 }

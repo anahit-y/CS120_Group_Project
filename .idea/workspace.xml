@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="69b6c47e-7af0-4f5b-9692-f72a57eb52dc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Matrices/GeneralMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Matrices/DiagonalMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrices/DiagonalMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Matrices/IdentityMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrices/IdentityMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Matrices/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrices/Matrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Matrices/SquareMatrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Matrices/SquareMatrix.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Vectors/Vector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Vectors/Vector.java" afterDir="false" />
-    </list>
+    <list default="true" id="69b6c47e-7af0-4f5b-9692-f72a57eb52dc" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +21,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
@@ -37,16 +32,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Milestone-2---Project-Progress&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Anahit/IdeaProjects/CS120_Group_Project&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Milestone-2---Project-Progress",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Anahit/IdeaProjects/CS120_Group_Project/src"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="Matrices" />

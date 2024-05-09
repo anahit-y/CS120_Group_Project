@@ -2,27 +2,31 @@ package matrices;
 import vectors.Vector;
 
 public interface Matrix{
-    public Vector rowToVector(int rowNumber);
 
-    public Vector columnToVector(int columnNumber);
+    // operations for vectors
+    public Vector rowToVector(int numberOfRow);
+    public Vector columnToVector(int numberOfColumn);
 
-    public static GeneralMatrix add(GeneralMatrix m1, GeneralMatrix m2) {
-        return null;
-    }
+    // accessors
+    public int getNumberOfRows();
+    public int getNumberOfColumns();
+    public double getElementAt(int numberOfRow, int numberOfColumn);
 
-    public static GeneralMatrix subtract(GeneralMatrix m1, GeneralMatrix m2) {
-        return null;
-    }
+    // operations on matrices
+    public Matrix add(Matrix m) throws IllegalArgumentException;
 
-    public static GeneralMatrix multiply(GeneralMatrix m1, GeneralMatrix m2) {
-        return null;
-    }
+    public Matrix subtract(Matrix m) throws IllegalArgumentException;
 
-    public static GeneralMatrix scalarMultiply(GeneralMatrix m, double c) {
-        return null;
-    }
+    public Matrix multiply(Matrix m) throws IllegalArgumentException;
 
-    public static GeneralMatrix transpose(GeneralMatrix m) {
-        return null;
+    public Matrix scalarMultiply(double c);
+
+    public Matrix transpose();
+
+
+    // helper method
+    public static boolean equalSize(Matrix m1, Matrix m2){
+        return ((m1.getNumberOfRows() == m2.getNumberOfRows())
+                && (m1.getNumberOfColumns() == m2.getNumberOfColumns()));
     }
 }
