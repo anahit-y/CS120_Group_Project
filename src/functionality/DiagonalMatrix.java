@@ -1,5 +1,5 @@
-package matrices;
-import vectors.Vector;
+package functionality;
+
 public class DiagonalMatrix extends AbstractSquareMatrix {
     private double[] diagonal;
 

@@ -1,6 +1,6 @@
-package matrices;
+package functionality;
 
-public abstract class AbstractSquareMatrix implements Matrix{
+public abstract class AbstractSquareMatrix implements Matrix {
     //instance variable
     private int size;
 

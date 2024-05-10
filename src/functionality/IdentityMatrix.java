@@ -1,7 +1,6 @@
-package matrices;
-import vectors.Vector;
+package functionality;
 
-public class IdentityMatrix extends AbstractSquareMatrix{
+public class IdentityMatrix extends AbstractSquareMatrix {
     // constructor
     public IdentityMatrix(int size){
         super(size);

@@ -1,5 +1,4 @@
-package matrices;
-import vectors.Vector;
+package functionality;
 
 public interface Matrix{
 

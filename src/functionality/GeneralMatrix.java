@@ -1,6 +1,4 @@
-package matrices;
-
-import vectors.Vector;
+package functionality;
 
 public class GeneralMatrix implements Matrix{
     // instance variables

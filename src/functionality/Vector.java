@@ -1,4 +1,5 @@
-package vectors;
+package CS120_Group_Project.src.functionality;
+
 
 public class Vector implements Cloneable{
     // instance variables

@@ -1,5 +1,4 @@
-package matrices;
-import vectors.Vector;
+package functionality;
 
 public class SquareMatrix extends AbstractSquareMatrix {
     private double[][] matrix;
