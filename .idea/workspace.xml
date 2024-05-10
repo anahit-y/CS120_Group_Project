@@ -1,79 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="69b6c47e-7af0-4f5b-9692-f72a57eb52dc" name="Changes" comment="" />
+    <list default="true" id="605c6f5c-5eae-4541-ba0c-3cefb104d159" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Exceptions/InvalidSizeException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Matrices/AbstractMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Matrices/AbstractSquareMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Matrices/DiagonalMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Matrices/IdentityMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Matrices/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Matrices/SquareMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/oop-spring24-GroupProject/Vectors/Vector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CS120_Group_Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/AbstractSquareMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/CS120_Group_Project.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/DiagonalMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/GeneralMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/IdentityMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/Matrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/SquareMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/matrices/SymmetricMatrix.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/vectors/Vector.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/out/production/CS120_Group_Project/vectors/VectorDemo.class" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-        <option value="Interface" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MarkdownSettingsMigration">
-    <option name="stateVersion" value="1" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2egDcEE4q4qhOtl3GYxlbQXNzmJ" />
+  <component name="ProjectId" id="2gGksyddfWqfGcqwkZ2GOj9xZlr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Milestone-2---Project-Progress",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Anahit/IdeaProjects/CS120_Group_Project/src"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RecentsManager">
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="Matrices" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="69b6c47e-7af0-4f5b-9692-f72a57eb52dc" name="Changes" comment="" />
-      <created>1712317406405</created>
+      <changelist id="605c6f5c-5eae-4541-ba0c-3cefb104d159" name="Changes" comment="" />
+      <created>1715331515656</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1712317406405</updated>
+      <updated>1715331515656</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
