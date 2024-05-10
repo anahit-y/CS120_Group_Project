@@ -35,6 +35,10 @@ public class MatrixButton extends JButton implements ActionListener {
         det.configurations();
         Inverse inverse = new Inverse("Inverse", rightPanel);
         inverse.configurations();
+        RowEchelon rowEch = new RowEchelon("Row Echelon", rightPanel);
+        rowEch.configurations();
+        ReducedRowEchelon rrowEch = new ReducedRowEchelon("Reduced Row Echelon", rightPanel);
+        rrowEch.configurations();
 
 
         // Add these buttons to the button panel
@@ -52,6 +56,10 @@ public class MatrixButton extends JButton implements ActionListener {
         det.addActionListener(k -> det.openPanel());
         buttonPanel.add(inverse);
         inverse.addActionListener(k -> inverse.openPanel());
+        buttonPanel.add(rowEch);
+        rowEch.addActionListener(k -> rowEch.openPanel());
+        buttonPanel.add(rrowEch);
+        rrowEch.addActionListener(k -> rrowEch.openPanel());
 
         buttonPanel.revalidate();
         buttonPanel.repaint();

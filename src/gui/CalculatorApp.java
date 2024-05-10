@@ -14,7 +14,7 @@ public class CalculatorApp extends JFrame {
         setBackground(Color.WHITE);
 
         JPanel buttonPanel = new JPanel(new GridLayout(0, 1));
-        JPanel rightPanel = new JPanel(); // Placeholder for other functionalities
+        JPanel rightPanel = new JPanel();
 
         add(buttonPanel, BorderLayout.WEST);
         add(rightPanel, BorderLayout.CENTER);
