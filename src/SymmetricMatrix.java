@@ -51,7 +51,7 @@ public class SymmetricMatrix extends AbstractSquareMatrix {
     }
 
     public Matrix multiply(Matrix m) {
-        if (this.getSize() != m.getNumberOfColumns()) {
+        if (this.getSize() != m.getNumberOfRows()) {
             throw new IllegalArgumentException("Invalid matrix for multiplication");
         }
         GeneralMatrix result = new GeneralMatrix(this.getNumberOfRows(), m.getNumberOfColumns());
