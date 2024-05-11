@@ -172,6 +172,10 @@ public class GeneralMatrix implements Matrix{
         }
         return result;
     }
+    //helper method for gui to represent numbers
+    public static double roundToThreeDecimals(double value) {
+        return Math.round(value * 1000.0) / 1000.0;
+    }
 
     // overridden methods inherited from Object
 

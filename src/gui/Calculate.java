@@ -74,7 +74,6 @@ public class Calculate extends JButton {
             JPanel matrixPanelB = (JPanel) frameB.getContentPane().getComponent(0);
             matrixB = extractMatrix(matrixPanelB, rowsB, colsB);
         }
-
         if (matrixB == null && operationName.equals("Scalar")) {
             callCalculationMethod(matrixA, scalar);
         } else if (matrixB == null) {
@@ -311,7 +310,7 @@ public class Calculate extends JButton {
         resultPanel.setForeground(Color.WHITE);
         for (double[] row : result) {
             for (double value : row) {
-                JTextField field = new JTextField(String.valueOf(value));
+                JTextField field = new JTextField(String.valueOf(GeneralMatrix.roundToThreeDecimals(value)));
                 field.setHorizontalAlignment(JTextField.CENTER);
                 field.setEditable(false);
                 resultPanel.add(field);
@@ -347,7 +346,7 @@ public class Calculate extends JButton {
         resultPanel.setBackground(Color.DARK_GRAY);
         resultPanel.setForeground(Color.WHITE);
         for (double value : result) {
-            JTextField field = new JTextField(String.valueOf(value));
+            JTextField field = new JTextField(String.valueOf(GeneralMatrix.roundToThreeDecimals(value)));
             field.setHorizontalAlignment(JTextField.CENTER);
             field.setEditable(false);
             resultPanel.add(field);

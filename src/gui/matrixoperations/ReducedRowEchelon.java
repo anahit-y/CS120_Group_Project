@@ -28,7 +28,7 @@ public class ReducedRowEchelon extends JButton implements OperationButton {
             try {
                 int dimension1 = Integer.parseInt(field1.getText()); // Get number from field1
                 int dimension2 = Integer.parseInt(field2.getText()); // Get number from field2
-                setButton.openOneWindow(dimension1, dimension2, "Matrix", "Transpose");
+                setButton.openOneWindow(dimension1, dimension2, "Matrix", "Reduced Row Echelon");
             } catch (NumberFormatException e) {
                 // Handle error if the text fields contain non-numeric values
                 System.out.println("Please enter valid numbers in the dimension fields.");
