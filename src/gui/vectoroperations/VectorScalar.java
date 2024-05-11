@@ -31,7 +31,7 @@ public class VectorScalar extends JButton implements OperationButton {
         setButton.addActionListener(k -> {
             try {
                 int dimension1 = Integer.parseInt(field.getText()); // Get number from field1
-                setButton.openScalarWindow(1, dimension1, "Vector", "Scalar", scalar);
+                setButton.openScalarWindow(1, dimension1, "Vector", "VScalar", scalar);
             } catch (NumberFormatException e) {
                 // Handle error if the text fields contain non-numeric values
                 System.out.println("Please enter valid numbers in the dimension fields.");

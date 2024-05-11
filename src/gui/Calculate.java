@@ -63,8 +63,6 @@ public class Calculate extends JButton {
         this.operationName = operationName;
     }
 
-    // Separate method for matrix calculations
-    // Separate method for matrix calculations
     public void performMatrixCalculation() {
         JPanel matrixPanelA = (JPanel) frameA.getContentPane().getComponent(0);
         double[][] matrixA = extractMatrix(matrixPanelA, rowsA, colsA);
@@ -78,16 +76,14 @@ public class Calculate extends JButton {
             callCalculationMethod(matrixA, scalar);
         } else if (matrixB == null) {
             callCalculationMethod(matrixA);
-        } else {
+        } else{
             callCalculationMethod(matrixA, matrixB);
         }
-
         frameA.dispose();
         if (frameB != null) {
             frameB.dispose();
         }
     }
-
     // Separate method for vector calculations
     public void performVectorCalculation() {
         if (frameA != null && frameB != null) {
@@ -99,10 +95,9 @@ public class Calculate extends JButton {
             JPanel vectorPanelA = (JPanel) frameA.getContentPane().getComponent(0);
             vectorA = extractVector(vectorPanelA, colsA);
         }
-
-        System.out.println("Vector A: " + Arrays.toString(vectorA));
-        System.out.println("Vector B: " + Arrays.toString(vectorB));
-        if (vectorA != null && (vectorB != null || operationName.equals("Scalar"))) {
+//        System.out.println("Vector A: " + Arrays.toString(vectorA));
+//        System.out.println("Vector B: " + Arrays.toString(vectorB));
+        if (vectorA != null && (vectorB != null || operationName.equals("VScalar"))) {
             callVectorCalculationMethod(vectorA, vectorB);
         }
 
@@ -174,7 +169,7 @@ public class Calculate extends JButton {
             case "Subtraction":
                 performVectorSubtraction(vectorA, vectorB);
                 break;
-            case "Scalar":
+            case "VScalar":
                 performVectorScalar(vectorA, scalar);
                 break;
             case "Dot":
@@ -213,9 +208,17 @@ public class Calculate extends JButton {
     }
 
     private void performMultiplication(double[][] matrixA, double[][] matrixB) {
+        System.out.println("*****************");
         GeneralMatrix matA = new GeneralMatrix(matrixA);
         GeneralMatrix matB = new GeneralMatrix(matrixB);
         GeneralMatrix result = (GeneralMatrix) matA.multiply(matB);
+        System.out.println("#########");
+        double [][] mat = result.getMatrix();
+
+        for(int i = 0; i < mat.length; i++){
+            for(int j = 0; j < mat[0].length; j++)
+                System.out.println(mat[i][j]);
+        }
         displayResult(result.getMatrix());
     }
 
@@ -310,7 +313,7 @@ public class Calculate extends JButton {
         resultPanel.setForeground(Color.WHITE);
         for (double[] row : result) {
             for (double value : row) {
-                JTextField field = new JTextField(String.valueOf(GeneralMatrix.roundToThreeDecimals(value)));
+                JTextField field = new JTextField(String.valueOf(value));
                 field.setHorizontalAlignment(JTextField.CENTER);
                 field.setEditable(false);
                 resultPanel.add(field);
@@ -319,14 +322,20 @@ public class Calculate extends JButton {
         resultFrame.add(resultPanel, BorderLayout.CENTER);
         resultFrame.setLocationRelativeTo(null);
         resultFrame.setVisible(true);
+
+//        frameA.dispose();
+//        if (frameB != null) {
+//            frameB.dispose();
+//        }
+
     }
 
     private void displayResult(double result) {
         JFrame resultFrame = new JFrame("Result");
         resultFrame.setSize(200, 100);
         resultFrame.setLayout(new BorderLayout());
-        resultFrame.setBackground(Color.DARK_GRAY);
-        resultFrame.setForeground(Color.WHITE);
+//        resultFrame.setBackground(Color.DARK_GRAY);
+//        resultFrame.setForeground(Color.WHITE);
 
         JTextField resultField = new JTextField(String.valueOf(result));
         resultField.setHorizontalAlignment(JTextField.CENTER);
@@ -382,8 +391,8 @@ public class Calculate extends JButton {
         }
         JLabel resultLabel = new JLabel(message, SwingConstants.CENTER);
         resultLabel.setFont(new Font("Arial", Font.PLAIN, 16));
-        resultLabel.setBackground(Color.DARK_GRAY);
-        resultLabel.setForeground(Color.WHITE);
+//        resultLabel.setBackground(Color.DARK_GRAY);
+//        resultLabel.setForeground(Color.WHITE);
 
         resultFrame.add(resultLabel, BorderLayout.CENTER);
         resultFrame.setLocationRelativeTo(null);

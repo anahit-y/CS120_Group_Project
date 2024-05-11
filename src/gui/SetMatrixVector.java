@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class SetMatrixVector extends JButton {
     String operationName;
@@ -18,8 +20,8 @@ public class SetMatrixVector extends JButton {
         this.operationName = operationName;
 
         // Calculate dynamic width and height
-        int width = cols * 60 + 40;
-        int height = rows * 60 + 100;
+        int width = Math.max(cols * 70 + 40, 300); // Ensure minimum width of 300
+        int height = Math.max(rows * 70 + 100, 400); // Ensure minimum height of 400
 
         frameA = createMatrixWindow(type + " A Input", rows, cols, width, height);
         frameB = createMatrixWindow(type + " B Input", rows, cols, width, height);
@@ -43,8 +45,9 @@ public class SetMatrixVector extends JButton {
         calculateButton.setBackground(Color.DARK_GRAY);
         calculateButton.setForeground(Color.WHITE);
         calculateButton.setFocusPainted(false);
+        calculateButton.setPreferredSize(new Dimension(120, 30));
         calculateButton.addActionListener(e -> {
-
+            disposeOpenFrames(); // Dispose old frames
             if (type.equals("Vector")) {
                 Calculate calculate = new Calculate(frameA, frameB, operationName, rows, cols, rows, cols);
                 calculate.performVectorCalculation();
@@ -52,7 +55,6 @@ public class SetMatrixVector extends JButton {
                 Calculate calculate = new Calculate(frameA, frameB, operationName, rows, cols, rows, cols);
                 calculate.performMatrixCalculation();
             }
-            disposeOpenFrames(); // Dispose old frames
         });
 
         JPanel buttonPanelA = (JPanel) frameA.getContentPane().getComponent(1);
@@ -66,10 +68,10 @@ public class SetMatrixVector extends JButton {
         this.operationName = operationName;
 
         // Calculate dynamic width and height
-        int widthA = mid * 60 + 40;
-        int heightA = rows * 60 + 100;
-        int widthB = col * 60 + 40;
-        int heightB = mid * 60 + 100;
+        int widthA = Math.max(mid * 70 + 40, 300); // Ensure minimum width of 300
+        int heightA = Math.max(rows * 70 + 100, 400); // Ensure minimum height of 400
+        int widthB = Math.max(col * 70 + 40, 300); // Ensure minimum width of 300
+        int heightB = Math.max(mid * 70 + 100, 400); // Ensure minimum height of 400
 
         frameA = createMatrixWindow(type + " A Input", rows, mid, widthA, heightA);
         frameB = createMatrixWindow(type + " B Input", mid, col, widthB, heightB);
@@ -93,8 +95,9 @@ public class SetMatrixVector extends JButton {
         calculateButton.setBackground(Color.DARK_GRAY);
         calculateButton.setForeground(Color.WHITE);
         calculateButton.setFocusPainted(false);
+        calculateButton.setPreferredSize(new Dimension(120, 30));
         calculateButton.addActionListener(e -> {
-
+            disposeOpenFrames(); // Dispose old frames
             if (type.equals("Vector")) {
                 double[] vectorA = extractVector(frameA, rows);
                 double[] vectorB = extractVector(frameB, mid); // or some other logic based on vector operation
@@ -104,7 +107,6 @@ public class SetMatrixVector extends JButton {
                 Calculate calculate = new Calculate(frameA, frameB, operationName, rows, mid, mid, col);
                 calculate.performVectorCalculation();
             }
-            disposeOpenFrames(); // Dispose old frames
         });
 
         JPanel buttonPanelA = (JPanel) frameA.getContentPane().getComponent(1);
@@ -118,8 +120,8 @@ public class SetMatrixVector extends JButton {
         this.operationName = operationName;
 
         // Calculate dynamic width and height
-        int width = cols * 60 + 40;
-        int height = rows * 60 + 100;
+        int width = Math.max(cols * 70 + 40, 300); // Ensure minimum width of 300
+        int height = Math.max(rows * 70 + 100, 400); // Ensure minimum height of 400
 
         frameA = createMatrixWindow(type + " Input", rows, cols, width, height);
 
@@ -130,10 +132,15 @@ public class SetMatrixVector extends JButton {
         calculateButton.setBackground(Color.DARK_GRAY);
         calculateButton.setForeground(Color.WHITE);
         calculateButton.setFocusPainted(false);
+        calculateButton.setPreferredSize(new Dimension(120, 30));
         calculateButton.addActionListener(e -> {
-
             Calculate calculate = new Calculate(frameA, operationName, rows, cols, scalar);
-            calculate.performMatrixCalculation();
+            if (operationName.equals("VScalar")) {
+                calculate.performVectorCalculation();
+            } else if (operationName.equals("Scalar")) {
+                calculate.performMatrixCalculation();
+            }
+
             disposeOpenFrames(); // Dispose old frames
         });
 
@@ -147,8 +154,8 @@ public class SetMatrixVector extends JButton {
         this.operationName = operationName;
 
         // Calculate dynamic width and height
-        int width = cols * 60 + 40;
-        int height = rows * 60 + 100;
+        int width = Math.max(cols * 70 + 40, 300); // Ensure minimum width of 300
+        int height = Math.max(rows * 70 + 100, 400); // Ensure minimum height of 400
 
         frameA = createMatrixWindow(type + " Input", rows, cols, width, height);
 
@@ -159,8 +166,9 @@ public class SetMatrixVector extends JButton {
         calculateButton.setBackground(Color.DARK_GRAY);
         calculateButton.setForeground(Color.WHITE);
         calculateButton.setFocusPainted(false);
+        calculateButton.setPreferredSize(new Dimension(120, 30));
         calculateButton.addActionListener(e -> {
-
+            disposeOpenFrames(); // Dispose old frames
             if (type.equals("Vector")) {
                 double[] vectorA = extractVector(frameA, rows);
                 Calculate calculate = new Calculate(vectorA, operationName);
@@ -169,7 +177,6 @@ public class SetMatrixVector extends JButton {
                 Calculate calculate = new Calculate(frameA, operationName, rows, cols);
                 calculate.performMatrixCalculation();
             }
-            disposeOpenFrames(); // Dispose old frames
         });
 
         JPanel buttonPanelA = (JPanel) frameA.getContentPane().getComponent(1);
@@ -193,6 +200,8 @@ public class SetMatrixVector extends JButton {
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setSize(width, height);
         frame.setLayout(new BorderLayout());
+
+        frame.setMinimumSize(new Dimension(width, height)); // Set minimum size
 
         JPanel matrixPanel = new JPanel(new GridBagLayout());
         matrixPanel.setBackground(Color.DARK_GRAY);
@@ -219,10 +228,12 @@ public class SetMatrixVector extends JButton {
         setZerosButton.setBackground(Color.DARK_GRAY);
         setZerosButton.setForeground(Color.WHITE);
         setZerosButton.setFocusPainted(false);
+        setZerosButton.setPreferredSize(new Dimension(120, 30));
 
         clearButton.setBackground(Color.DARK_GRAY);
         clearButton.setForeground(Color.WHITE);
         clearButton.setFocusPainted(false);
+        clearButton.setPreferredSize(new Dimension(120, 30));
 
         setZerosButton.addActionListener(e -> {
             for (int i = 0; i < rows; i++) {
@@ -243,12 +254,87 @@ public class SetMatrixVector extends JButton {
         });
 
         buttonPanel.add(setZerosButton);
+        buttonPanel.add(Box.createHorizontalStrut(10));
         buttonPanel.add(clearButton);
-
         frame.add(matrixPanel, BorderLayout.CENTER);
         frame.add(buttonPanel, BorderLayout.SOUTH);
 
+        // Add matrix options menu if rows and cols are equal
+        if (rows == cols) {
+            addMatrixOptionsMenu(frame, matrix);
+        }
+
         return frame;
+    }
+
+    private void addMatrixOptionsMenu(JFrame frame, JTextField[][] matrix) {
+        JMenuBar menuBar = new JMenuBar();
+        JMenu matrixMenu = new JMenu("Matrix Options");
+
+        JMenuItem symmetricItem = new JMenuItem("Symmetric Matrix");
+        symmetricItem.addActionListener(e -> {
+            makeSymmetric(matrix);
+        });
+
+        JMenuItem diagonalItem = new JMenuItem("Diagonal Matrix");
+        diagonalItem.addActionListener(e -> {
+            makeDiagonal(matrix);
+        });
+
+        JMenuItem identityItem = new JMenuItem("Identity Matrix");
+        identityItem.addActionListener(e -> {
+            makeIdentity(matrix);
+        });
+
+        matrixMenu.add(symmetricItem);
+        matrixMenu.add(diagonalItem);
+        matrixMenu.add(identityItem);
+        menuBar.add(matrixMenu);
+
+        frame.setJMenuBar(menuBar);
+    }
+
+    private void makeSymmetric(JTextField[][] matrix) {
+        int size = matrix.length;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i < j) {
+                    int row = i, col = j;
+                    matrix[row][col].addKeyListener(new KeyAdapter() {
+                        @Override
+                        public void keyReleased(KeyEvent e) {
+                            matrix[col][row].setText(matrix[row][col].getText());
+                        }
+                    });
+                }
+            }
+        }
+    }
+
+    private void makeDiagonal(JTextField[][] matrix) {
+        int size = matrix.length;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i != j) {
+                    matrix[i][j].setText("0");
+                } else {
+                    matrix[i][j].setText("");
+                }
+            }
+        }
+    }
+
+    private void makeIdentity(JTextField[][] matrix) {
+        int size = matrix.length;
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                if (i == j) {
+                    matrix[i][j].setText("1");
+                } else {
+                    matrix[i][j].setText("0");
+                }
+            }
+        }
     }
 
     private void disposeOpenFrames() {

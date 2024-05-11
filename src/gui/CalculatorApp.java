@@ -36,7 +36,6 @@ public class CalculatorApp extends JFrame {
 
         matrixButton.addActionListener(matrixButton);
         vectorButton.addActionListener(vectorButton);
-
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {

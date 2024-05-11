@@ -11,11 +11,13 @@ public class MatrixMultiplication extends JButton implements OperationButton {
         super(name);
         this.rightPanel = panel; // Store the reference to the right panel
     }
-    public void configurations(){
+
+    public void configurations() {
         this.setBackground(Color.DARK_GRAY);
         this.setForeground(Color.WHITE);
         this.setFocusPainted(false);
     }
+
     public void openPanel() {
         rightPanel.removeAll();  // Clear previous components
 
@@ -46,12 +48,15 @@ public class MatrixMultiplication extends JButton implements OperationButton {
             public void changedUpdate(javax.swing.event.DocumentEvent e) {
                 update();
             }
+
             public void removeUpdate(javax.swing.event.DocumentEvent e) {
                 update();
             }
+
             public void insertUpdate(javax.swing.event.DocumentEvent e) {
                 update();
             }
+
             private void update() {
                 fieldB1.setText(fieldA2.getText()); // Update fieldB1 when fieldA2 changes
             }
@@ -103,5 +108,4 @@ public class MatrixMultiplication extends JButton implements OperationButton {
         rightPanel.revalidate();
         rightPanel.repaint();
     }
-
 }
